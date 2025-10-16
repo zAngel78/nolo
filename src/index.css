@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0f172a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  color: #e2e8f0;
+}
+
+/* Professional dark sidebar */
+.sidebar-dark {
+  background: #1e293b;
+  border-right: 1px solid #334155;
+}
+
+/* Professional card */
+.pro-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+}
+
+/* Custom scrollbar */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* File preview modal */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* PDF viewer container */
+.pdf-container {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+/* Image preview */
+.image-preview {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
