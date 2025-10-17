@@ -3,7 +3,7 @@ import {
   Folder, FileText, Image as ImageIcon, BarChart3, Download, Search,
   Database, TrendingUp, FileBarChart, BookOpen,
   Menu, X, ChevronRight, Eye, ExternalLink, FileSpreadsheet,
-  FileCode, XCircle
+  FileCode, XCircle, Mail, MonitorPlay, Globe
 } from 'lucide-react'
 import './App.css'
 
@@ -32,8 +32,8 @@ const getDownloadUrl = (path) => {
 // Research structure with actual file paths
 const researchStructure = {
   overview: {
-    totalDocuments: 25,
-    totalPages: 199,
+    totalDocuments: 34,
+    totalPages: 229,
     chartsGenerated: 14,
     dataPoints: 4800
   },
@@ -105,6 +105,42 @@ const researchStructure = {
         { name: "chart_yu_gap_analysis.png", type: "image", size: "335 KB", path: "../YU_Research_Documentation/05_Data_and_Metrics/chart_yu_gap_analysis.png" }
       ],
       description: "Quantitative analysis and statistical testing"
+    },
+    {
+      id: "06",
+      name: "Email Marketing",
+      icon: Mail,
+      color: "bg-pink-600",
+      files: [
+        { name: "email_marketing_analysis.pdf", type: "pdf", size: "76 KB", pages: 6, path: "../YU_Research_Documentation/06_Email_Marketing/email_marketing_analysis.pdf" },
+        { name: "email_marketing_analysis.tex", type: "tex", size: "52 KB", path: "../YU_Research_Documentation/06_Email_Marketing/email_marketing_analysis.tex" },
+        { name: "email_marketing_data.csv", type: "csv", size: "8 KB", path: "../YU_Research_Documentation/06_Email_Marketing/email_marketing_data.csv" }
+      ],
+      description: "Newsletter analysis, frequency, segmentation & competitor benchmarking"
+    },
+    {
+      id: "07",
+      name: "Digital Ads",
+      icon: MonitorPlay,
+      color: "bg-orange-600",
+      files: [
+        { name: "digital_ads_analysis.pdf", type: "pdf", size: "95 KB", pages: 10, path: "../YU_Research_Documentation/07_Digital_Ads/digital_ads_analysis.pdf" },
+        { name: "digital_ads_analysis.tex", type: "tex", size: "68 KB", path: "../YU_Research_Documentation/07_Digital_Ads/digital_ads_analysis.tex" },
+        { name: "digital_ads_data.csv", type: "csv", size: "6 KB", path: "../YU_Research_Documentation/07_Digital_Ads/digital_ads_data.csv" }
+      ],
+      description: "Meta Ads, Google Ads, WSJ campaigns & ROI analysis"
+    },
+    {
+      id: "08",
+      name: "Website Analysis",
+      icon: Globe,
+      color: "bg-teal-600",
+      files: [
+        { name: "website_analysis.pdf", type: "pdf", size: "124 KB", pages: 14, path: "../YU_Research_Documentation/08_Website_Analysis/website_analysis.pdf" },
+        { name: "website_analysis.tex", type: "tex", size: "74 KB", path: "../YU_Research_Documentation/08_Website_Analysis/website_analysis.tex" },
+        { name: "website_analysis_data.csv", type: "csv", size: "7 KB", path: "../YU_Research_Documentation/08_Website_Analysis/website_analysis_data.csv" }
+      ],
+      description: "Homepage, admissions, donations pages & UX competitive analysis"
     }
   ]
 }
@@ -226,6 +262,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("")
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [previewFile, setPreviewFile] = useState(null)
+  const [showChangelog, setShowChangelog] = useState(true)
 
   const getFileIcon = (type) => {
     switch(type) {
