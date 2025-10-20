@@ -1,8 +1,108 @@
-/* Remove all default Vite styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* Base styles */
 #root {
   width: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Professional corporate styles */
+.corporate-shadow {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.dark .corporate-shadow {
+  box-shadow: none;
+}
+
+/* Custom scrollbar */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 3px;
+}
+
+.dark .scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* Bubble animations and styles */
+.bubble-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.category-bubble {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.category-bubble::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.category-bubble:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+  z-index: 50;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.category-bubble:hover::before {
+  opacity: 1;
+}
+
+.category-bubble .text-center {
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+
+.category-bubble:hover .text-center {
+  transform: scale(1.05);
+}
+
+/* Custom gradients for bubbles */
+.bubble-gradient-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.bubble-gradient-green {
+  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+}
+
+.bubble-gradient-orange {
+  background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+}
+
+.bubble-gradient-purple {
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+}
+
+.bubble-gradient-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+}
