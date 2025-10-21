@@ -529,6 +529,15 @@ function App() {
     <div className="min-h-screen bg-white dark:bg-slate-950 relative">
       {/* Background Pattern */}
       <BackgroundPattern />
+      
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      
       {/* Sidebar */}
       <div className={`h-screen ${sidebarOpen ? 'w-72' : 'w-0'} transition-all duration-300 overflow-hidden fixed left-0 top-0 z-40 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900`}>
         <div className="p-8 h-full flex flex-col">
@@ -681,9 +690,9 @@ function App() {
       </div>
 
       {/* Main Content */}
-      <div className={`flex-1 ${sidebarOpen ? 'ml-72' : 'ml-0'} transition-all duration-300 relative z-10`}>
+      <div className={`flex-1 ${sidebarOpen ? 'lg:ml-72' : 'ml-0'} transition-all duration-300 relative z-10`}>
         {/* Top Bar */}
-        <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-8 py-6 flex items-center justify-between sticky top-0 z-30">
+        <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between sticky top-0 z-30">
           <div className="flex items-center gap-6">
             {!sidebarOpen && (
               <button
@@ -694,12 +703,12 @@ function App() {
                 <Menu className="w-5 h-5 text-slate-600 dark:text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors" />
               </button>
             )}
-            <div>
-              <h2 className="text-lg font-light text-slate-900 dark:text-white tracking-tight mb-1">
+            <div className="flex-1 min-w-0">
+              <h2 className="text-base sm:text-lg font-light text-slate-900 dark:text-white tracking-tight mb-1 truncate">
                 {activeFolder ? activeFolder.name : 'Research Documentation'}
               </h2>
               {activeFolder && (
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-slate-500 dark:text-slate-400 hidden sm:block truncate">
                   {activeFolder.description}
                 </p>
               )}
@@ -708,7 +717,7 @@ function App() {
           
           <div className="flex items-center gap-3">
             {activeFolder && (
-              <div className="text-sm text-slate-500 dark:text-slate-400">
+              <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
                 {activeFolder.files.length} files
               </div>
             )}
@@ -716,16 +725,16 @@ function App() {
         </div>
 
         {/* Content */}
-        <div className="p-6 bg-white dark:bg-slate-950">
+        <div className="p-4 sm:p-6 bg-white dark:bg-slate-950">
           {!activeFolder ? (
             // Welcome
             <div className="max-w-5xl mx-auto">
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8 corporate-shadow">
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-6 lg:p-8 corporate-shadow">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-blue-50 dark:bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Folder className="w-8 h-8 text-blue-500" />
                   </div>
-                  <h3 className="text-2xl font-light text-slate-900 dark:text-slate-100 mb-2">
+                  <h3 className="text-xl sm:text-2xl font-light text-slate-900 dark:text-slate-100 mb-2">
                     YU Digital Presence Research
                   </h3>
                   <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
@@ -771,10 +780,10 @@ function App() {
           ) : (
             // Files Grid
             <div className="max-w-7xl mx-auto">
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8 corporate-shadow">
-                <div className="flex items-center justify-between mb-8">
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-6 lg:p-8 corporate-shadow">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4">
                   <div>
-                    <h3 className="text-lg font-light text-slate-900 dark:text-slate-100 tracking-tight">Available Documents</h3>
+                    <h3 className="text-base sm:text-lg font-light text-slate-900 dark:text-slate-100 tracking-tight">Available Documents</h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Select a document to view or analyze</p>
                   </div>
                   {activeFolder && (
@@ -1262,17 +1271,17 @@ function App() {
       {/* Changelog Modal */}
       {showChangelog && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="w-full max-w-3xl mx-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-xl">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg w-full max-w-4xl mx-4 max-h-[90vh] overflow-hidden flex flex-col">
             {/* Header */}
-            <div className="border-b border-slate-200 dark:border-slate-800 px-6 py-4">
+            <div className="border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 py-4">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <div className="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0">
                     <FileBarChart className="w-5 h-5 text-slate-900 dark:text-slate-100" />
                   </div>
-                  <div>
-                    <h2 className="text-xl font-light text-slate-900 dark:text-slate-100 tracking-tight">Platform Update v2.5</h2>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">New Features - Visual Analytics & AI Assistant</p>
+                  <div className="min-w-0">
+                    <h2 className="text-lg sm:text-xl font-light text-slate-900 dark:text-slate-100 tracking-tight truncate">Platform Update v2.5</h2>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">New Features - Visual Analytics & AI Assistant</p>
                   </div>
                 </div>
                 <button
@@ -1285,14 +1294,14 @@ function App() {
             </div>
 
             {/* Content */}
-            <div className="px-6 py-6 max-h-[70vh] overflow-y-auto">
+            <div className="px-4 sm:px-6 py-4 sm:py-6 max-h-[70vh] overflow-y-auto">
               {/* Stats Update */}
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Latest Update - October 2025</span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-6">
                   <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded">
                     <div className="text-2xl font-light text-slate-900 dark:text-slate-100">10+</div>
                     <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Interactive Charts</div>
@@ -1451,12 +1460,12 @@ function App() {
 
               {/* Researcher Info */}
               <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Research by</p>
                     <p className="text-sm font-medium text-slate-900 dark:text-slate-100">Angel Ramirez</p>
                   </div>
-                  <div className="text-right">
+                  <div className="sm:text-right">
                     <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Research Partner</p>
                     <p className="text-sm font-medium text-slate-900 dark:text-slate-100">Stephany Nayz - Yeshiva University</p>
                   </div>
@@ -1465,12 +1474,12 @@ function App() {
             </div>
 
             {/* Footer */}
-            <div className="border-t border-slate-200 dark:border-slate-800 px-6 py-4">
+            <div className="border-t border-slate-200 dark:border-slate-800 px-4 sm:px-6 py-4">
               <button
                 onClick={() => setShowChangelog(false)}
-                className="w-full py-3 rounded bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-900 font-medium transition text-sm"
+                className="w-full py-2.5 sm:py-3 rounded bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-900 font-medium transition text-sm"
               >
-                Continue to Dashboard
+                Close
               </button>
             </div>
           </div>
