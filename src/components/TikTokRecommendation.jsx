@@ -5,27 +5,27 @@ const TikTokRecommendation = ({ isOpen, onClose }) => {
   if (!isOpen) return null
 
   return createPortal(
-    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-md">
-      <div className="w-full max-w-2xl mx-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-xl">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-md p-4">
+      <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-xl">
         {/* Header */}
-        <div className="border-b border-slate-200 dark:border-slate-800 px-6 py-4 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
+        <div className="border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 py-4 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 flex-1 min-w-0">
+              <div className="w-10 h-10 rounded bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg flex-shrink-0">
                 <Zap className="w-5 h-5 text-white" />
               </div>
-              <div>
-                <h2 className="text-lg font-light text-slate-900 dark:text-slate-100 tracking-tight">
+              <div className="min-w-0">
+                <h2 className="text-base sm:text-lg font-light text-slate-900 dark:text-slate-100 tracking-tight truncate">
                   TikTok: Critical Growth Opportunity
                 </h2>
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-slate-600 dark:text-slate-400 hidden sm:block">
                   Strategic platform recommendation
                 </p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-white/50 dark:hover:bg-slate-800 rounded transition"
+              className="p-2 hover:bg-white/50 dark:hover:bg-slate-800 rounded transition flex-shrink-0"
             >
               <X className="w-5 h-5 text-slate-400" />
             </button>
@@ -33,7 +33,7 @@ const TikTokRecommendation = ({ isOpen, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="px-6 py-6">
+        <div className="px-4 sm:px-6 py-4 sm:py-6">
           <div className="space-y-4">
             {/* Critical Status */}
             <div className="p-4 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
@@ -94,19 +94,19 @@ const TikTokRecommendation = ({ isOpen, onClose }) => {
             </div>
 
             {/* Key Metrics */}
-            <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded">
-              <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="p-3 sm:p-4 bg-slate-50 dark:bg-slate-800 rounded">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
                 <div>
-                  <div className="text-xl font-light text-yellow-600 dark:text-yellow-400">4.80%</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Engagement Rate</div>
+                  <div className="text-lg sm:text-xl font-light text-yellow-600 dark:text-yellow-400">4.80%</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Engagement</div>
                 </div>
                 <div>
-                  <div className="text-xl font-light text-yellow-600 dark:text-yellow-400">2.28%</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Weekly Growth</div>
+                  <div className="text-lg sm:text-xl font-light text-yellow-600 dark:text-yellow-400">2.28%</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Growth</div>
                 </div>
                 <div>
-                  <div className="text-xl font-light text-yellow-600 dark:text-yellow-400">30d</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Launch Timeline</div>
+                  <div className="text-lg sm:text-xl font-light text-yellow-600 dark:text-yellow-400">30d</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Timeline</div>
                 </div>
               </div>
             </div>
@@ -131,12 +131,13 @@ const TikTokRecommendation = ({ isOpen, onClose }) => {
         </div>
 
         {/* Footer */}
-        <div className="border-t border-slate-200 dark:border-slate-800 px-6 py-4">
+        <div className="border-t border-slate-200 dark:border-slate-800 px-4 sm:px-6 py-4">
           <button
             onClick={onClose}
-            className="w-full py-3 rounded bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium transition text-sm shadow-lg"
+            className="w-full py-2.5 sm:py-3 rounded bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium transition text-sm shadow-lg"
           >
-            Understood - Review Full Analysis
+            <span className="hidden sm:inline">Understood - Review Full Analysis</span>
+            <span className="sm:hidden">Got it</span>
           </button>
         </div>
       </div>
