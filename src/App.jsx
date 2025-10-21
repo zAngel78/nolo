@@ -542,7 +542,7 @@ function App() {
       <div className={`h-screen ${sidebarOpen ? 'w-72' : 'w-0'} transition-all duration-300 overflow-hidden fixed left-0 top-0 z-40 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900`}>
         <div className="p-8 h-full flex flex-col">
           {/* Header */}
-          <div className="mb-8">
+          <div className="mb-8 animate-fade-in-left delay-100">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-2xl font-light text-slate-900 dark:text-slate-100 tracking-tight">Research</h1>
@@ -568,7 +568,7 @@ function App() {
           </div>
 
           {/* Search */}
-          <div className="relative mb-8">
+          <div className="relative mb-8 animate-fade-in-left delay-200">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Search className="w-4 h-4 text-slate-400" />
             </div>
@@ -582,7 +582,7 @@ function App() {
           </div>
 
           {/* Stats */}
-          <div className="space-y-6 mb-8">
+          <div className="space-y-6 mb-8 animate-fade-in-left delay-300">
             <div className="space-y-1.5">
               <div className="text-xs font-medium text-slate-500 dark:text-slate-400">Overview</div>
               <div className="grid grid-cols-2 gap-4">
@@ -613,7 +613,7 @@ function App() {
           </div>
 
           {/* Folders */}
-          <div className="flex-1 overflow-y-auto scrollbar-custom">
+          <div className="flex-1 overflow-y-auto scrollbar-custom animate-fade-in-left delay-400">
             <div className="space-y-6">
               {filteredFolders.map((folder) => {
                 const Icon = folder.icon
@@ -661,7 +661,7 @@ function App() {
           </div>
 
           {/* Theme Toggle & Footer */}
-          <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+          <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 animate-fade-in-left delay-500">
             <div className="flex items-center justify-between mb-6">
               <button
                 onClick={() => setDarkMode(!darkMode)}
@@ -692,7 +692,7 @@ function App() {
       {/* Main Content */}
       <div className={`flex-1 ${sidebarOpen ? 'lg:ml-72' : 'ml-0'} transition-all duration-300 relative z-10`}>
         {/* Top Bar */}
-        <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between sticky top-0 z-30">
+        <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between sticky top-0 z-30 animate-fade-in delay-100">
           <div className="flex items-center gap-6">
             {!sidebarOpen && (
               <button
@@ -729,8 +729,8 @@ function App() {
           {!activeFolder ? (
             // Welcome
             <div className="max-w-5xl mx-auto">
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-6 lg:p-8 corporate-shadow">
-                <div className="text-center mb-8">
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-6 lg:p-8 corporate-shadow animate-scale-in delay-200">
+                <div className="text-center mb-8 animate-fade-in-up delay-300">
                   <div className="w-16 h-16 bg-blue-50 dark:bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Folder className="w-8 h-8 text-blue-500" />
                   </div>
@@ -742,7 +742,7 @@ function App() {
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-3 gap-4 animate-fade-in-up delay-400">
                   <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded-lg">
                     <FileText className="w-6 h-6 text-blue-500 mb-2" />
                     <div className="text-2xl font-light text-slate-900 dark:text-slate-100 mb-1">250</div>
@@ -760,14 +760,14 @@ function App() {
                   </div>
                 </div>
 
-                <div className="mt-6 grid md:grid-cols-2 gap-4">
-                  {researchStructure.folders.slice(0, 4).map((folder) => {
+                <div className="mt-6 grid md:grid-cols-2 gap-4 animate-fade-in-up delay-500">
+                  {researchStructure.folders.slice(0, 4).map((folder, index) => {
                     const Icon = folder.icon
                     return (
                       <button
                         key={folder.id}
                         onClick={() => setActiveFolder(folder)}
-                        className="p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded hover:border-slate-900 dark:hover:border-slate-100 transition-colors text-left group"
+                        className={`p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded hover:border-slate-900 dark:hover:border-slate-100 transition-colors text-left group animate-fade-in-up delay-${600 + (index * 100)}`}
                       >
                         <div className="text-sm font-medium text-slate-900 dark:text-slate-100 mb-1">{folder.name}</div>
                         <div className="text-xs text-slate-500 dark:text-slate-400">{folder.files.length} files</div>
@@ -780,8 +780,8 @@ function App() {
           ) : (
             // Files Grid
             <div className="max-w-7xl mx-auto">
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-6 lg:p-8 corporate-shadow">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4">
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 sm:p-6 lg:p-8 corporate-shadow animate-scale-in delay-200">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4 animate-fade-in-up delay-300">
                   <div>
                     <h3 className="text-base sm:text-lg font-light text-slate-900 dark:text-slate-100 tracking-tight">Available Documents</h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Select a document to view or analyze</p>
@@ -808,7 +808,7 @@ function App() {
                   {activeFolder.files.map((file, idx) => (
                     <div
                       key={idx}
-                      className="group relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded p-4 hover:border-slate-900 dark:hover:border-slate-100 transition-colors cursor-pointer"
+                      className={`group relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded p-4 hover:border-slate-900 dark:hover:border-slate-100 transition-colors cursor-pointer animate-fade-in-up delay-${Math.min(400 + (idx * 50), 800)}`}
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div>
