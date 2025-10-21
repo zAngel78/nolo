@@ -3,13 +3,14 @@ import {
   Folder, FileText, Image as ImageIcon, BarChart3, Download, Search,
   Database, TrendingUp, FileBarChart, BookOpen,
   Menu, X, ChevronRight, ChevronDown, Eye, ExternalLink, FileSpreadsheet,
-  FileCode, XCircle, Mail, MonitorPlay, Globe, Sun, Moon, LogOut
+  FileCode, XCircle, Mail, MonitorPlay, Globe, Sun, Moon, LogOut, MessageCircle
 } from 'lucide-react'
 import './App.css'
 import { useAuth } from './context/AuthContext'
 import Login from './components/Login'
 import BackgroundPattern from './components/BackgroundPattern'
 import VisualInsights from './components/VisualInsights'
+import EinsteinAI from './components/EinsteinAI'
 
 // Backend API configuration
 const API_BASE = 'https://nomassi-1.onrender.com'
@@ -511,15 +512,16 @@ function App() {
       sources: "digital_ads_analysis.tex lines 65-66 (WSJ rates), line 179 (YouTube 5,810 subs), line 183 (214K Maccabeats views), lines 296-298 (Meta Ads Library ID 1987105728741190 documented). Lines 289-290: '21 active ad campaigns' verified via facebook.com/ads/library. Line 224: Y-Studs secondary channel has 36K+ subs, 10M+ views. Line 230: Total social reach 70,000+ followers combined."
     },
     "08": {
-      title: "Website Analysis - WebFetch Methodology",
-      subtitle: "How we achieved 100% verified data using direct web scraping",
+      title: "Website Analysis - 100% Direct Verification Method",
+      subtitle: "How we verified 4 critical pages across 3 institutions with zero estimations",
       metrics: [
-        { value: "100%", label: "Verified via WebFetch", color: "text-green-400" },
-        { value: "16", label: "Pages Analyzed", color: "text-blue-400" },
-        { value: "3", label: "Institutions Compared", color: "text-orange-400" }
+        { value: "100%", label: "Verified Data", color: "text-green-400" },
+        { value: "4", label: "Pages Analyzed", color: "text-blue-400" },
+        { value: "3", label: "Institutions", color: "text-purple-400" },
+        { value: "97%", label: "Employment Rate", color: "text-emerald-400" }
       ],
-      methodology: "Direct website analysis using WebFetch tool (real-time HTML scraping) on yu.edu, brandeis.edu, and touro.edu. No assumptions or estimates used - all data comes from live website HTML. Pages analyzed: homepage, admissions, academics, student life, athletics, giving/donations, alumni, about. Critical issues documented with exact HTML snippets. Competitive comparison done by analyzing identical page types across all 3 institutions.",
-      sources: "See website_analysis.tex section '100% Direct Website Analysis' for methodology. All findings have exact URLs and access dates (Oct 2025). Screenshots available for critical issues. website_analysis_data.csv contains page-by-page findings with source URLs."
+      methodology: "WHY 100% verified? Lines 586, 652, 681: 'All data in this report is derived from direct, real-time analysis of live university websites' - zero estimations or assumptions. Every finding observable and verifiable. WHY 4 pages? Lines 591-596: Homepage (yu.edu), Admissions (yu.edu/admissions), Donations (yu.edu/give), Alumni (yu.edu/alumni) - each analyzed for design, messaging, CTAs, brand consistency. WHY 3 institutions? Line 23: YU, Brandeis, Touro comparative analysis. WHY 97% employment? Lines 31, 140, 603, 669: Exact statistic verified directly from YU homepage - strong outcomes messaging. WHY 92% medical school acceptance? Same lines: pre-med program strength metric verified. WHY 'a place to' critical? Lines 160, 464: INCOMPLETE HEADLINE on admissions page - appears unfinished, damages first impression, priority CRITICAL. WHY 5 Hebrew values? Lines 29, 77-93: Emet (Truth), Adam (Human), Chaim (Life), Chesed (Kindness), Tzion (Zion) - Table shows all translations. WHY $613M campaign? Line 314: 'Rise Up: The Campaign for 613' launched 2019, unprecedented scale. Line 316: Annual giving grew $30M (2018) to $92M (2021). WHY 301 redirect? Line 287: yu.edu/give uses '301 Moved Permanently' to GiveCampus platform - potential brand disruption but industry standard.",
+      sources: "website_analysis.tex lines 586-606: Methodology section '100% Direct Website Analysis' explains verification process. Lines 591-596: All 4 pages listed. Lines 599-606: Verified elements include incomplete headline, Hebrew values, employment/medical data, NYC photography, 301 redirect. Line 681: 'October 2025 | Method: Direct website analysis (100% verified, zero estimations)'. Lines 160-172: Critical admissions headline issue with impact assessment. Table 79-93: Hebrew values framework with complete translations."
     }
   }
 
@@ -671,7 +673,7 @@ function App() {
             </div>
             <div className="text-xs text-slate-500 dark:text-slate-400">
               <div className="font-medium">Research Documentation</div>
-              <div className="mt-1">Angel Ramirez → Stephany Nayz</div>
+              <div className="mt-1">Angel Ramirez & Stephany Nayz</div>
               <div className="mt-0.5">Yeshiva University</div>
             </div>
           </div>
@@ -1269,8 +1271,8 @@ function App() {
                     <FileBarChart className="w-5 h-5 text-slate-900 dark:text-slate-100" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-light text-slate-900 dark:text-slate-100 tracking-tight">Research Update v2.1</h2>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Verified Data - Meta Ads, YouTube & Engagement Analysis</p>
+                    <h2 className="text-xl font-light text-slate-900 dark:text-slate-100 tracking-tight">Platform Update v2.5</h2>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">New Features - Visual Analytics & AI Assistant</p>
                   </div>
                 </div>
                 <button
@@ -1292,102 +1294,102 @@ function App() {
 
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded">
-                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">21</div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Meta Ads Verified</div>
+                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">10+</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Interactive Charts</div>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded">
-                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">~95%</div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Data Verified</div>
+                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">100%</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Real Data Visualized</div>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded">
-                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">3</div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">YouTube Channels</div>
+                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">AI</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Einstein Assistant</div>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded">
-                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">4/4</div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Channels Complete</div>
+                    <div className="text-2xl font-light text-slate-900 dark:text-slate-100">2025</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">Updated Year</div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  {/* Meta Ads Verification */}
-                  <div className="p-4 rounded bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
-                        <MonitorPlay className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-medium text-slate-900 dark:text-slate-100 mb-1 text-sm">Meta Ads Library - 21 Campaigns Verified</h3>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">
-                          All 21 active Meta Ads campaigns verified from Meta Ads Library (Oct 2025).
-                          Israel Advocacy (2 ads), Azrieli Graduate (11 ads), Revel (6 ads), Fish Center (2 ads).
-                          81% focused on graduate recruitment, 10% Israel advocacy. Real Library IDs documented.
-                        </p>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            21 verified ads
-                          </span>
-                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            Library IDs
-                          </span>
-                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            Jul 2024-Present
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* YouTube & Press Releases */}
-                  <div className="p-4 rounded bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
-                        <MonitorPlay className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-medium text-slate-900 dark:text-slate-100 mb-1 text-sm">YouTube + Press Releases Verified</h3>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">
-                          3 official YouTube channels documented: @YeshivaUniversity (5.81K subs, 1K videos,
-                          Maccabeats White House 214K views), Y-Studs A Cappella (36K+ subs), Innovation Lab.
-                          Plus 10+ verified press releases 2024-2025 ($520M Rise Up Campaign, Herald Center expansion).
-                        </p>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            3 YT channels
-                          </span>
-                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            41.8K+ subs
-                          </span>
-                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            Press releases
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Engagement Analysis */}
+                  {/* Visual Analytics */}
                   <div className="p-4 rounded bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
                         <BarChart3 className="w-4 h-4 text-slate-600 dark:text-slate-400" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-medium text-slate-900 dark:text-slate-100 mb-1 text-sm">Engagement Analysis: Informal vs Formal Tone</h3>
+                        <h3 className="font-medium text-slate-900 dark:text-slate-100 mb-1 text-sm">Interactive Visual Analytics</h3>
                         <p className="text-xs text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">
-                          Complete Chapter 4 added to Social Media PDF with concrete examples
-                          showing informal tone generates 2.8x higher engagement (3.45% vs 1.23% formal). Includes caption frameworks,
-                          projected engagement for YU's 15K Instagram, and Brandeis competitive benchmarks.
+                          New visual insights section with 10+ interactive charts using real Instagram data.
+                          Includes platform performance comparison, follower analysis, engagement by tone, posting schedule,
+                          sentiment analysis, and top hashtags. All data sourced from verified research and live analytics.
                         </p>
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            Tone analysis
+                            10+ charts
                           </span>
                           <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            2.8x boost
+                            Real-time data
                           </span>
                           <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
-                            Real examples
+                            Recharts
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Einstein AI Assistant */}
+                  <div className="p-4 rounded bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-slate-900 dark:text-slate-100 mb-1 text-sm">Einstein AI - Research Assistant</h3>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">
+                          New floating chatbot powered by knowledge base with 10+ research topics.
+                          Ask about Instagram performance, TikTok opportunities, engagement strategies, competitors,
+                          email marketing, digital ads, website analysis, and more. Instant responses with verified data.
+                        </p>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
+                            AI powered
+                          </span>
+                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
+                            10+ topics
+                          </span>
+                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
+                            Floating chat
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* UI/UX Improvements */}
+                  <div className="p-4 rounded bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                        <FileBarChart className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-slate-900 dark:text-slate-100 mb-1 text-sm">Enhanced Minimalist Design</h3>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">
+                          Complete UI overhaul with minimalist design principles. Background pattern decoration,
+                          simplified category titles, professional iconography, Instagram profile showcase,
+                          informational modals with React Portal, and updated copyright year to 2025.
+                        </p>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
+                            Minimalist
+                          </span>
+                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
+                            Year 2025
+                          </span>
+                          <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs">
+                            React Portal
                           </span>
                         </div>
                       </div>
@@ -1455,7 +1457,7 @@ function App() {
                     <p className="text-sm font-medium text-slate-900 dark:text-slate-100">Angel Ramirez</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Client</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Research Partner</p>
                     <p className="text-sm font-medium text-slate-900 dark:text-slate-100">Stephany Nayz - Yeshiva University</p>
                   </div>
                 </div>
@@ -1474,6 +1476,9 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Einstein AI Chatbot */}
+      <EinsteinAI />
     </div>
   )
 }
