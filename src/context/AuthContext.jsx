@@ -2,10 +2,10 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext(null)
 
-// Credenciales estáticas
+// Credenciales estáticas (seguras)
 const STATIC_CREDENTIALS = {
-  username: 'admin',
-  password: 'admin123'
+  username: 'yu_research_admin_2025',
+  password: 'YU#Res3arch$P0rt@l!2025_Secure'
 }
 
 export const AuthProvider = ({ children }) => {

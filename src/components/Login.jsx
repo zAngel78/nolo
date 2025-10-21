@@ -160,7 +160,7 @@ const Login = () => {
           {/* Info */}
           <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
             <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
-              Demo credentials: <code className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-900 dark:text-slate-100 font-mono">admin</code> / <code className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-900 dark:text-slate-100 font-mono">admin123</code>
+              Secure access portal for authorized personnel only
             </p>
           </div>
         </div>
