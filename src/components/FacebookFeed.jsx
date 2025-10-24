@@ -118,7 +118,6 @@ const FacebookFeed = ({ pagename = 'yeshivauniversity' }) => {
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Facebook Posts</h2>
-        <p className="text-slate-600 dark:text-slate-400">@YeshivaUniversity</p>
       </div>
 
       {/* Stats Cards */}

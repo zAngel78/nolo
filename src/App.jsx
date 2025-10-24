@@ -477,7 +477,7 @@ function SocialMediaPostsSection() {
       'columbia': {
         instagram: 'columbia',
         facebook: 'columbia',
-        twitter: 'columbia',
+        twitter: 'Columbia',
         youtube: 'columbia'
       },
       'touro': {

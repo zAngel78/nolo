@@ -118,7 +118,6 @@ const TwitterFeed = ({ username = 'yunews' }) => {
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Twitter/X Posts</h2>
-        <p className="text-slate-600 dark:text-slate-400">@YUNews</p>
       </div>
 
       {/* Stats Cards */}
