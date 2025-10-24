@@ -3,7 +3,8 @@ import {
   Folder, FileText, Image as ImageIcon, BarChart3, Download, Search,
   Database, TrendingUp, FileBarChart, BookOpen,
   Menu, X, ChevronRight, ChevronDown, Eye, ExternalLink, FileSpreadsheet,
-  FileCode, XCircle, Mail, MonitorPlay, Globe, Sun, Moon, LogOut, MessageCircle
+  FileCode, XCircle, Mail, MonitorPlay, Globe, Sun, Moon, LogOut, MessageCircle,
+  Instagram, Facebook, Twitter, Youtube, Megaphone
 } from 'lucide-react'
 import './App.css'
 import { useAuth } from './context/AuthContext'
@@ -13,13 +14,20 @@ import VisualInsights from './components/VisualInsights'
 import EducationalAssetsReport from './components/EducationalAssetsReport'
 import EinsteinAI from './components/EinsteinAI'
 import MarkdownViewer from './components/MarkdownViewer'
+import InstagramFeed from './components/InstagramFeed'
+import FacebookFeed from './components/FacebookFeed'
+import TwitterFeed from './components/TwitterFeed'
+import YouTubeFeed from './components/YouTubeFeed'
+import MetaAdsFeed from './components/MetaAdsFeed'
 import CompetitiveChart from './components/CompetitiveChart'
 import EmailMarketingChart from './components/EmailMarketingChart'
 import WebsiteMetricsChart from './components/WebsiteMetricsChart'
 import QualitativeInsights from './components/QualitativeInsights'
 
-// Backend API configuration
-const API_BASE = 'https://nomassi-1.onrender.com'
+// Backend API configuration - auto-detect local vs production
+const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:3001' 
+  : 'https://nomassi-1.onrender.com'
 
 // Helper function to get file URL from backend
 const getFileUrl = (path) => {
@@ -256,6 +264,15 @@ const researchStructure = {
         { name: "scoring_methodology.md", type: "markdown", size: "28 KB", path: "../YU_Research_Documentation/11_Social_Media_Scoring_Methodology/scoring_methodology.md" }
       ],
       description: "Detailed methodology explaining how social media scores are calculated and data sources"
+    },
+    {
+      id: "12",
+      name: "Data Social Post Analyzed",
+      icon: MessageCircle,
+      color: "bg-violet-600",
+      files: [],
+      description: "Real scraped posts from Instagram, Facebook, Twitter, and YouTube - YU and competitor analysis",
+      hasSocialFeeds: true
     }
   ]
 }
@@ -413,6 +430,139 @@ const universityComparisons = {
     'Brandeis': 8,
     'Maryland': 4
   }
+}
+
+// Social Media Posts Section Component
+function SocialMediaPostsSection() {
+  const [selectedUniversity, setSelectedUniversity] = useState('yeshiva_university')
+  const [selectedPlatform, setSelectedPlatform] = useState('instagram')
+
+  const universities = [
+    { id: 'yeshiva_university', name: 'Yeshiva University', shortName: 'YU' },
+    { id: 'nyu', name: 'New York University', shortName: 'NYU' },
+    { id: 'brandeis', name: 'Brandeis University', shortName: 'Brandeis' },
+    { id: 'columbia', name: 'Columbia University', shortName: 'Columbia' },
+    { id: 'touro', name: 'Touro University', shortName: 'Touro' }
+  ]
+
+  const platforms = [
+    { id: 'instagram', name: 'Instagram', icon: Instagram },
+    { id: 'facebook', name: 'Facebook', icon: Facebook },
+    { id: 'twitter', name: 'Twitter', icon: Twitter },
+    { id: 'youtube', name: 'YouTube', icon: Youtube },
+    { id: 'meta_ads', name: 'Meta Ads', icon: Megaphone }
+  ]
+
+  const renderFeed = () => {
+    // Map university IDs to platform-specific usernames/handles
+    const platformMappings = {
+      'yeshiva_university': {
+        instagram: 'yeshiva_university',
+        facebook: 'yeshivauniversity',
+        twitter: 'yunews',
+        youtube: 'yeshivauniversity'
+      },
+      'nyu': {
+        instagram: 'nyu',
+        facebook: 'nyu',
+        twitter: 'nyu',
+        youtube: 'nyu'
+      },
+      'brandeis': {
+        instagram: 'brandeis',
+        facebook: 'brandeis',
+        twitter: 'brandeis',
+        youtube: 'brandeis'
+      },
+      'columbia': {
+        instagram: 'columbia',
+        facebook: 'columbia',
+        twitter: 'columbia',
+        youtube: 'columbia'
+      },
+      'touro': {
+        instagram: 'touro',
+        facebook: 'touro',
+        twitter: 'touro',
+        youtube: 'touro'
+      }
+    }
+
+    const mapping = platformMappings[selectedUniversity]
+    
+    switch(selectedPlatform) {
+      case 'instagram':
+        return <InstagramFeed university={mapping.instagram} />
+      case 'facebook':
+        return <FacebookFeed pagename={mapping.facebook} />
+      case 'twitter':
+        return <TwitterFeed username={mapping.twitter} />
+      case 'youtube':
+        return <YouTubeFeed channel={mapping.youtube} />
+      case 'meta_ads':
+        // Only show Meta Ads for Yeshiva University
+        if (selectedUniversity === 'yeshiva_university') {
+          return <MetaAdsFeed university="yeshiva_university" />
+        }
+        return (
+          <div className="text-center py-12">
+            <p className="text-gray-500 dark:text-gray-400">Meta Ads data is only available for Yeshiva University</p>
+          </div>
+        )
+      default:
+        return null
+    }
+  }
+
+  return (
+    <div className="mb-8">
+      {/* University Selector */}
+      <div className="mb-6">
+        <h3 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Select University</h3>
+        <div className="flex gap-3">
+          {universities.map((uni) => (
+            <button
+              key={uni.id}
+              onClick={() => setSelectedUniversity(uni.id)}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                selectedUniversity === uni.id
+                  ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/50'
+                  : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 hover:border-violet-500'
+              }`}
+            >
+              {uni.shortName}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Platform Selector */}
+      <div className="mb-6">
+        <h3 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Select Platform</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {platforms.map((platform) => (
+            <button
+              key={platform.id}
+              onClick={() => setSelectedPlatform(platform.id)}
+              className={`px-4 py-3 rounded-lg font-medium transition-all flex items-center justify-center gap-2 ${
+                selectedPlatform === platform.id
+                  ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/50'
+                  : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 hover:border-violet-500'
+              }`}
+            >
+              <platform.icon className="w-5 h-5" />
+              <span>{platform.name}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Feed Content */}
+      <div className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+        {renderFeed()}
+      </div>
+    </div>
+  )
 }
 
 function App() {
@@ -895,6 +1045,11 @@ function App() {
                   <div className="mb-8">
                     <WebsiteMetricsChart />
                   </div>
+                )}
+
+                {/* Social Media Posts Section */}
+                {activeFolder.id === '12' && (
+                  <SocialMediaPostsSection />
                 )}
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
