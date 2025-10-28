@@ -4,7 +4,7 @@ import {
   Database, TrendingUp, FileBarChart, BookOpen,
   Menu, X, ChevronRight, ChevronDown, Eye, ExternalLink, FileSpreadsheet,
   FileCode, XCircle, Mail, MonitorPlay, Globe, Sun, Moon, LogOut, MessageCircle,
-  Instagram, Facebook, Twitter, Youtube, Megaphone
+  Instagram, Facebook, Twitter, Youtube, Megaphone, Info
 } from 'lucide-react'
 import './App.css'
 import { useAuth } from './context/AuthContext'
@@ -23,6 +23,7 @@ import CompetitiveChart from './components/CompetitiveChart'
 import EmailMarketingChart from './components/EmailMarketingChart'
 import WebsiteMetricsChart from './components/WebsiteMetricsChart'
 import QualitativeInsights from './components/QualitativeInsights'
+import SectionInfoModal from './components/SectionInfoModal'
 
 // Backend API configuration - auto-detect local vs production
 const API_BASE = window.location.hostname === 'localhost' 
@@ -273,6 +274,48 @@ const researchStructure = {
       files: [],
       description: "Real scraped posts from Instagram, Facebook, Twitter, and YouTube - YU and competitor analysis",
       hasSocialFeeds: true
+    },
+    {
+      id: "13",
+      name: "Research Assets Collection",
+      icon: Mail,
+      color: "bg-emerald-600",
+      files: [
+        { name: "NEWSLETTER_SOURCES.txt", type: "txt", size: "12 KB", path: "research_assets_collection/NEWSLETTER_SOURCES.txt" },
+        { name: "COLLECTION_INDEX.md", type: "markdown", size: "8 KB", path: "research_assets_collection/COLLECTION_INDEX.md" },
+        { name: "yu_2025_05.pdf", type: "pdf", size: "2.1 MB", pages: 8, path: "research_assets_collection/emails/yeshiva_university/yu_2025_05.pdf" },
+        { name: "yu_2025_04.pdf", type: "pdf", size: "1.9 MB", pages: 7, path: "research_assets_collection/emails/yeshiva_university/yu_2025_04.pdf" },
+        { name: "yu_2025_02.pdf", type: "pdf", size: "2.0 MB", pages: 8, path: "research_assets_collection/emails/yeshiva_university/yu_2025_02.pdf" },
+        { name: "yu_2024_12.pdf", type: "pdf", size: "1.8 MB", pages: 7, path: "research_assets_collection/emails/yeshiva_university/yu_2024_12.pdf" },
+        { name: "yu_2024_06.pdf", type: "pdf", size: "2.2 MB", pages: 8, path: "research_assets_collection/emails/yeshiva_university/yu_2024_06.pdf" },
+        { name: "yu_2024_03.pdf", type: "pdf", size: "2.2 MB", pages: 8, path: "research_assets_collection/emails/yeshiva_university/yu_2024_03.pdf" },
+        { name: "yu_2024_01.pdf", type: "pdf", size: "1.7 MB", pages: 6, path: "research_assets_collection/emails/yeshiva_university/yu_2024_01.pdf" },
+        { name: "NYU June 2025", type: "pdf", size: "1.5 MB", pages: 6, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__June_2025.pdf" },
+        { name: "NYU March 2025", type: "pdf", size: "1.6 MB", pages: 7, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__March_2025.pdf" },
+        { name: "NYU February 2025", type: "pdf", size: "1.4 MB", pages: 6, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__February_2025.pdf" },
+        { name: "NYU January 2025", type: "pdf", size: "1.7 MB", pages: 7, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__January_2025.pdf" },
+        { name: "NYU December 2024", type: "pdf", size: "1.8 MB", pages: 8, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__December_2024.pdf" },
+        { name: "NYU November 2024", type: "pdf", size: "1.6 MB", pages: 7, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__November_2024.pdf" },
+        { name: "NYU October 2024", type: "pdf", size: "1.5 MB", pages: 6, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__October_2024.pdf" },
+        { name: "NYU September 2024", type: "pdf", size: "1.7 MB", pages: 7, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__September_2024.pdf" },
+        { name: "NYU August 2024", type: "pdf", size: "1.4 MB", pages: 6, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__August_2024.pdf" },
+        { name: "NYU July 2024", type: "pdf", size: "1.6 MB", pages: 7, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__July_2024.pdf" },
+        { name: "NYU June 2024", type: "pdf", size: "1.5 MB", pages: 6, path: "research_assets_collection/emails/nyu/NYU_Alumni_News__June_2024.pdf" },
+        { name: "brandeis_2025_summer.pdf", type: "pdf", size: "3.1 MB", pages: 12, path: "research_assets_collection/emails/brandeis/brandeis_2025_summer.pdf" },
+        { name: "brandeis_2025_winter.pdf", type: "pdf", size: "2.2 MB", pages: 9, path: "research_assets_collection/emails/brandeis/brandeis_2025_winter.pdf" },
+        { name: "brandeis_2024_summer.pdf", type: "pdf", size: "2.2 MB", pages: 9, path: "research_assets_collection/emails/brandeis/brandeis_2024_summer.pdf" },
+        { name: "brandeis_2024_winter.pdf", type: "pdf", size: "1.9 MB", pages: 8, path: "research_assets_collection/emails/brandeis/brandeis_2024_winter.pdf" },
+        { name: "brandeis_2023_winter.pdf", type: "pdf", size: "635 KB", pages: 3, path: "research_assets_collection/emails/brandeis/brandeis_2023_winter.pdf" },
+        { name: "brandeis_2023_summer.pdf", type: "pdf", size: "191 KB", pages: 1, path: "research_assets_collection/emails/brandeis/brandeis_2023_summer.pdf" },
+        { name: "columbia_2025_fall.pdf", type: "pdf", size: "4.2 MB", pages: 14, path: "research_assets_collection/emails/columbia/columbia_2025_fall.pdf" },
+        { name: "columbia_2025_spring_summer.pdf", type: "pdf", size: "5.8 MB", pages: 18, path: "research_assets_collection/emails/columbia/columbia_2025_spring_summer.pdf" },
+        { name: "columbia_2024_winter.pdf", type: "pdf", size: "4.5 MB", pages: 15, path: "research_assets_collection/emails/columbia/columbia_2024_winter.pdf" },
+        { name: "columbia_2024_fall.pdf", type: "pdf", size: "4.8 MB", pages: 16, path: "research_assets_collection/emails/columbia/columbia_2024_fall.pdf" },
+        { name: "columbia_2024_spring_summer.pdf", type: "pdf", size: "6.2 MB", pages: 19, path: "research_assets_collection/emails/columbia/columbia_2024_spring_summer.pdf" },
+        { name: "columbia_2023_winter.pdf", type: "pdf", size: "4.1 MB", pages: 14, path: "research_assets_collection/emails/columbia/columbia_2023_winter.pdf" }
+      ],
+      description: "Email marketing assets: 30 newsletters/magazines captured from YU, NYU, Brandeis, and Columbia (Jan 2024 - June 2025). Note: Touro University newsletters not available - gated behind alumni login. See NEWSLETTER_SOURCES.txt for details.",
+      hasInfoModal: true
     }
   ]
 }
@@ -576,6 +619,7 @@ function App() {
   const [showInsightPanel, setShowInsightPanel] = useState(true)
   const [showAnalysis, setShowAnalysis] = useState(false)
   const [darkMode, setDarkMode] = useState(true)
+  const [infoModalFolder, setInfoModalFolder] = useState(null)
 
   // useEffect debe estar antes de cualquier return condicional
   useEffect(() => {
@@ -853,6 +897,18 @@ function App() {
                           {folder.files.length} files
                         </div>
                       </div>
+                      {folder.hasInfoModal && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setInfoModalFolder(folder)
+                          }}
+                          className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors"
+                          title="Más información sobre esta sección"
+                        >
+                          <Info className="w-4 h-4 text-slate-400 hover:text-blue-500 dark:text-slate-500 dark:hover:text-blue-400" />
+                        </button>
+                      )}
                       <ChevronRight className={`w-4 h-4 ${
                         isActive ? 'text-blue-500' : 'text-slate-400 dark:text-slate-500'
                       }`} />
@@ -1738,6 +1794,14 @@ function App() {
 
       {/* Einstein AI Chatbot */}
       <EinsteinAI />
+
+      {/* Section Info Modal */}
+      {infoModalFolder && (
+        <SectionInfoModal
+          folder={infoModalFolder}
+          onClose={() => setInfoModalFolder(null)}
+        />
+      )}
     </div>
   )
 }
